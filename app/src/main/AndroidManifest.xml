@@ -4,9 +4,9 @@
 
     <application
         android:allowBackup="true"
-        android:icon="@mipmap/ic_launcher"
-        android:label=""
-        android:roundIcon="@mipmap/ic_launcher_round"
+        android:icon="@drawable/milabila_logo"
+        android:label="MiLaBiLa"
+        android:roundIcon="@drawable/milabila_logo"
         android:supportsRtl="true"
         android:theme="@style/Theme.MiLaBiLa">
         <activity android:name=".MainActivity">
