@@ -1,11 +1,45 @@
 <?xml version="1.0" encoding="utf-8"?>
 <navigation xmlns:android="http://schemas.android.com/apk/res/android"
     xmlns:app="http://schemas.android.com/apk/res-auto"
+    xmlns:tools="http://schemas.android.com/tools"
     android:id="@+id/nav_graph"
-    app:startDestination="@id/splashPage">
-
+    app:startDestination="@id/landingPage">
     <fragment
-        android:id="@+id/splashPage"
+        android:id="@+id/landingPage"
         android:name="org.ohmstheresistance.milabila.fragments.LandingPage"
-        android:label="SplashPage" />
+        android:label="landing_page_fragment"
+        tools:layout="@layout/landing_page_fragment" >
+        <action
+            android:id="@+id/action_landingPage_to_alphabetFragment"
+            app:destination="@id/alphabetFragment"
+            app:popUpTo="@id/landingPage" />
+        <action
+            android:id="@+id/action_landingPage_to_numbersFragment"
+            app:destination="@id/numbersFragment"
+            app:popUpTo="@id/landingPage" />
+        <action
+            android:id="@+id/action_landingPage_to_colorFragment"
+            app:destination="@id/colorFragment"
+            app:popUpTo="@id/landingPage" />
+        <action
+            android:id="@+id/action_landingPage_to_shapesFragment"
+            app:destination="@id/shapesFragment"
+            app:popUpTo="@id/landingPage" />
+    </fragment>
+    <fragment
+        android:id="@+id/alphabetFragment"
+        android:name="org.ohmstheresistance.milabila.fragments.AlphabetFragment"
+        android:label="AlphabetFragment" />
+    <fragment
+        android:id="@+id/numbersFragment"
+        android:name="org.ohmstheresistance.milabila.fragments.NumbersFragment"
+        android:label="NumbersFragment" />
+    <fragment
+        android:id="@+id/colorFragment"
+        android:name="org.ohmstheresistance.milabila.fragments.ColorFragment"
+        android:label="ColorFragment" />
+    <fragment
+        android:id="@+id/shapesFragment"
+        android:name="org.ohmstheresistance.milabila.fragments.ShapesFragment"
+        android:label="ShapesFragment" />
 </navigation>
