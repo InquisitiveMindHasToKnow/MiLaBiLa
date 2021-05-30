@@ -6,6 +6,6 @@
 
     <fragment
         android:id="@+id/splashPage"
-        android:name="org.ohmstheresistance.milabila.fragments.SplashPage"
+        android:name="org.ohmstheresistance.milabila.fragments.LandingPage"
         android:label="SplashPage" />
 </navigation>
