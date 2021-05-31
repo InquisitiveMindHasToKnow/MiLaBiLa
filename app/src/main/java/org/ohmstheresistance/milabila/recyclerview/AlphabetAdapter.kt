@@ -1,5 +1,6 @@
 package org.ohmstheresistance.milabila.recyclerview
 
+import android.util.Log
 import android.view.LayoutInflater
 import android.view.View
 import android.view.ViewGroup
@@ -21,15 +22,18 @@ class AlphabetAdapter(private val letterList: List<AlphabetData>, val alphabetFr
     override fun onBindViewHolder(holder: AlphabetViewHolder, position: Int) {
         holder.bindItems(letterList[position])
 
+        val positionOfLetterClicked = position
 
-        val letterImage: ImageView =
-            holder.itemView.findViewById(R.id.letter_imageview) as ImageView
         val letterClicked = letterList[position].letterCapitalAndCommon
         val detailImageName = letterList[position].detailImageName
 
         holder.itemView.setOnClickListener {
 
-           alphabetFragment.updateText(letterClicked, detailImageName)
+            Log.d("Item", position.toString())
+            Log.d("tryna see",letterList[position].letterCapitalAndCommon + " is for " + letterList[position].detailImageName)
+
+
+            alphabetFragment.updateTextAndImages(letterClicked, detailImageName, positionOfLetterClicked)
 
         }
     }
@@ -46,6 +50,6 @@ class AlphabetAdapter(private val letterList: List<AlphabetData>, val alphabetFr
         }
     }
     interface UpdateDetailTextviewInterface {
-        fun updateText(letter: String, comparisonWord: String)
+        fun updateTextAndImages(letter: String, comparisonWord: String, positionOfLetterClicked: Int)
     }
 }

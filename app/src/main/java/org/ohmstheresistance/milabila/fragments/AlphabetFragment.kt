@@ -15,32 +15,32 @@ import org.ohmstheresistance.milabila.recyclerview.AlphabetAdapter
 class AlphabetFragment : Fragment(), AlphabetAdapter.UpdateDetailTextviewInterface {
 
     private val letterList = listOf(
-        AlphabetData(R.drawable.a, "Aa", "Alligator"),
-        AlphabetData(R.drawable.b, "Bb", "Bear"),
-        AlphabetData(R.drawable.c, "Cc", "Cat"),
-        AlphabetData(R.drawable.d, "Dd", "Dog"),
-        AlphabetData(R.drawable.e, "Ee", "Elephant"),
-        AlphabetData(R.drawable.f, "Ff", "Fire"),
-        AlphabetData(R.drawable.g, "Gg", "Giraffe"),
-        AlphabetData(R.drawable.h, "Hh", "Horse"),
-        AlphabetData(R.drawable.i, "Ii", "Iguana"),
-        AlphabetData(R.drawable.j, "Jj", "Jellyfish"),
-        AlphabetData(R.drawable.k, "Kk", "Koala"),
-        AlphabetData(R.drawable.l, "Ll", "Lion"),
-        AlphabetData(R.drawable.m, "Mm", "Monkey"),
-        AlphabetData(R.drawable.n, "Nn", "Narwhal"),
-        AlphabetData(R.drawable.o, "Oo", "Owl"),
-        AlphabetData(R.drawable.p, "Pp", "Pig"),
-        AlphabetData(R.drawable.q, "Qq", "Quail"),
-        AlphabetData(R.drawable.r, "Rr", "Rabbit"),
-        AlphabetData(R.drawable.s, "Ss", "Snake"),
-        AlphabetData(R.drawable.t, "Tt", "Tiger"),
-        AlphabetData(R.drawable.u, "Uu", "Unicorn"),
-        AlphabetData(R.drawable.v, "Vv", "Vulture"),
-        AlphabetData(R.drawable.w, "Ww", "Worm"),
-        AlphabetData(R.drawable.x, "Xx", "X-ray"),
-        AlphabetData(R.drawable.y, "Yy", "Yak"),
-        AlphabetData(R.drawable.z, "Zz", "Zebra")
+        AlphabetData(R.drawable.a, "Aa", "Alligator", R.drawable.alligator),
+        AlphabetData(R.drawable.b, "Bb", "Bear", R.drawable.bear),
+        AlphabetData(R.drawable.c, "Cc", "Cat", R.drawable.cat),
+        AlphabetData(R.drawable.d, "Dd", "Dog", R.drawable.dog),
+        AlphabetData(R.drawable.e, "Ee", "Elephant", R.drawable.elephant),
+        AlphabetData(R.drawable.f, "Ff", "Flamingo", R.drawable.flamingo),
+        AlphabetData(R.drawable.g, "Gg", "Giraffe", R.drawable.giraffe),
+        AlphabetData(R.drawable.h, "Hh", "Horse", R.drawable.horse),
+        AlphabetData(R.drawable.i, "Ii", "Iguana", R.drawable.iguana),
+        AlphabetData(R.drawable.j, "Jj", "Jellyfish", R.drawable.jellyfish),
+        AlphabetData(R.drawable.k, "Kk", "Koala", R.drawable.koala),
+        AlphabetData(R.drawable.l, "Ll", "Lion", R.drawable.lion),
+        AlphabetData(R.drawable.m, "Mm", "Monkey", R.drawable.monkey),
+        AlphabetData(R.drawable.n, "Nn", "Narwhal", R.drawable.narwhal),
+        AlphabetData(R.drawable.o, "Oo", "Owl", R.drawable.owl),
+        AlphabetData(R.drawable.p, "Pp", "Pig", R.drawable.pig),
+        AlphabetData(R.drawable.q, "Qq", "Quail", R.drawable.quail),
+        AlphabetData(R.drawable.r, "Rr", "Rabbit", R.drawable.rabbit),
+        AlphabetData(R.drawable.s, "Ss", "Snake", R.drawable.snake),
+        AlphabetData(R.drawable.t, "Tt", "Tiger", R.drawable.tiger),
+        AlphabetData(R.drawable.u, "Uu", "Unicorn", R.drawable.unicorn),
+        AlphabetData(R.drawable.v, "Vv", "Vulture", R.drawable.vulture),
+        AlphabetData(R.drawable.w, "Ww", "Worm", R.drawable.worm),
+        AlphabetData(R.drawable.x, "Xx", "X-ray", R.drawable.xray),
+        AlphabetData(R.drawable.y, "Yy", "Yak", R.drawable.yak),
+        AlphabetData(R.drawable.z, "Zz", "Zebra", R.drawable.zebra)
     )
     private val alphabetAdapter = AlphabetAdapter(letterList, this)
     lateinit var alphabetFragmentBinding: AlphabetFragmentBinding
@@ -65,7 +65,13 @@ class AlphabetFragment : Fragment(), AlphabetAdapter.UpdateDetailTextviewInterfa
         alphabetFragmentBinding.alphabetListRecycler.adapter = alphabetAdapter
     }
 
-    override fun updateText(letter: String, comparisonWord: String) {
+    override fun updateTextAndImages(letter: String, comparisonWord: String, positionOfLetterClicked: Int) {
         alphabetFragmentBinding.detailTextview.text = letter + " is for " + comparisonWord
+
+
+       for (i in letterList.indices){
+            alphabetFragmentBinding.selectedLetterImageview.setImageResource(letterList[positionOfLetterClicked].letterImage)
+            alphabetFragmentBinding.letterComparisonImageview.setImageResource(letterList[positionOfLetterClicked].detailImage)
+        }
     }
 }
