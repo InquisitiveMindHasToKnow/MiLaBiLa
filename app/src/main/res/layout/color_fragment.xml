@@ -1,16 +1,208 @@
 <?xml version="1.0" encoding="utf-8"?>
 <layout xmlns:android="http://schemas.android.com/apk/res/android"
     xmlns:app="http://schemas.android.com/apk/res-auto"
-    xmlns:tools="http://schemas.android.com/tools">
-    <androidx.constraintlayout.widget.ConstraintLayout
+    xmlns:tools="http://schemas.android.com/tools"
+    tools:context=".fragments.Color">
+
+    <androidx.appcompat.widget.LinearLayoutCompat
         android:layout_width="match_parent"
         android:layout_height="match_parent"
-        tools:context=".fragments.ColorFragment">
+        android:background="@color/background_color"
+        android:orientation="vertical"
+        android:weightSum="2">
 
-        <TextView
+        <androidx.appcompat.widget.LinearLayoutCompat
+            android:id="@+id/color_frag_top_half_linear"
             android:layout_width="match_parent"
             android:layout_height="match_parent"
-            android:text="COLORS" />
+            android:layout_weight="1"
+            android:background="@color/white"
+            android:orientation="vertical">
 
-    </androidx.constraintlayout.widget.ConstraintLayout>
+
+        </androidx.appcompat.widget.LinearLayoutCompat>
+
+        <androidx.appcompat.widget.LinearLayoutCompat
+            android:layout_width="match_parent"
+            android:layout_height="match_parent"
+            android:layout_weight="1"
+            android:gravity="center_horizontal"
+            android:background="@color/text_color"
+            android:orientation="vertical">
+
+            <androidx.appcompat.widget.LinearLayoutCompat
+                android:id="@+id/red_blue_yellow_linear"
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:gravity="center_horizontal"
+                android:layout_marginTop="4dp"
+                android:padding="4dp"
+
+                android:layout_marginBottom="8dp"
+                android:orientation="horizontal">
+
+                <Button
+                    android:id="@+id/red_button"
+                    android:layout_width="96dp"
+                    android:layout_height="96dp"
+                    android:layout_marginStart="16dp"
+                    android:layout_marginEnd="8dp"
+                    android:background="@drawable/circle"
+                    android:backgroundTint="#FF0000"
+                    android:fontFamily="@font/andika"
+                    android:gravity="center"
+                    android:text="Red"
+                    android:textAllCaps="false"
+                    android:textColor="@color/text_color"
+                    android:textSize="16sp"
+                    />
+
+                <Button
+                    android:id="@+id/blue_button"
+                    android:layout_width="96dp"
+                    android:layout_height="96dp"
+                    android:layout_marginEnd="8dp"
+                    android:background="@drawable/circle"
+                    android:backgroundTint="#0000FF"
+                    android:fontFamily="@font/andika"
+                    android:gravity="center"
+                    android:textAllCaps="false"
+                    android:text="Blue"
+                    android:textColor="@color/text_color"
+                    android:textSize="16sp"
+                    android:textStyle="bold" />
+
+
+                <Button
+                    android:id="@+id/yellow_button"
+                    android:layout_width="96dp"
+                    android:layout_height="96dp"
+                    android:layout_marginEnd="8dp"
+                    android:background="@drawable/circle"
+                    android:backgroundTint="#FFFF00"
+                    android:fontFamily="@font/andika"
+                    android:gravity="center"
+                    android:text="Yellow"
+                    android:textColor="@color/text_color"
+                    android:textAllCaps="false"
+                    android:textSize="16sp"
+                    android:textStyle="bold" />
+            </androidx.appcompat.widget.LinearLayoutCompat>
+            <androidx.appcompat.widget.LinearLayoutCompat
+                android:id="@+id/purple_green_orange_linear"
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:gravity="center_horizontal"
+                android:layout_marginBottom="4dp"
+                android:padding="4dp"
+                android:orientation="horizontal">
+
+                <Button
+                    android:id="@+id/purple_button"
+                    android:layout_width="96dp"
+                    android:layout_height="96dp"
+                    android:layout_marginStart="16dp"
+                    android:layout_marginEnd="8dp"
+                    android:background="@drawable/circle"
+                    android:backgroundTint="#800080"
+                    android:fontFamily="@font/andika"
+                    android:gravity="center"
+                    android:text="Purple"
+                    android:textAllCaps="false"
+                    android:textColor="@color/text_color"
+                    android:textSize="16sp"
+                    />
+
+                <Button
+                    android:id="@+id/green_button"
+                    android:layout_width="96dp"
+                    android:layout_height="96dp"
+                    android:layout_marginEnd="8dp"
+                    android:background="@drawable/circle"
+                    android:backgroundTint="#008000"
+                    android:fontFamily="@font/andika"
+                    android:gravity="center"
+                    android:textAllCaps="false"
+                    android:text="Green"
+                    android:textColor="@color/text_color"
+                    android:textSize="16sp"
+                    android:textStyle="bold" />
+
+
+                <Button
+                    android:id="@+id/orange_button"
+                    android:layout_width="96dp"
+                    android:layout_height="96dp"
+                    android:layout_marginEnd="8dp"
+                    android:background="@drawable/circle"
+                    android:backgroundTint="#FFA500"
+                    android:fontFamily="@font/andika"
+                    android:gravity="center"
+                    android:text="Orange"
+                    android:textColor="@color/text_color"
+                    android:textAllCaps="false"
+                    android:textSize="16sp"
+                    android:textStyle="bold" />
+            </androidx.appcompat.widget.LinearLayoutCompat>
+
+            <androidx.appcompat.widget.LinearLayoutCompat
+                android:id="@+id/black_pink_brown_linear"
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:gravity="center_horizontal"
+                android:layout_marginBottom="4dp"
+                android:padding="4dp"
+                android:orientation="horizontal">
+
+                <Button
+                    android:id="@+id/black_button"
+                    android:layout_width="96dp"
+                    android:layout_height="96dp"
+                    android:layout_marginStart="16dp"
+                    android:layout_marginEnd="8dp"
+                    android:background="@drawable/circle"
+                    android:backgroundTint="#000000"
+                    android:fontFamily="@font/andika"
+                    android:gravity="center"
+                    android:text="Black"
+                    android:textAllCaps="false"
+                    android:textColor="@color/text_color"
+                    android:textSize="16sp"
+                    />
+
+                <Button
+                    android:id="@+id/pink_button"
+                    android:layout_width="96dp"
+                    android:layout_height="96dp"
+                    android:layout_marginEnd="8dp"
+                    android:background="@drawable/circle"
+                    android:backgroundTint="#FFC0CB"
+                    android:fontFamily="@font/andika"
+                    android:gravity="center"
+                    android:textAllCaps="false"
+                    android:text="Pink"
+                    android:textColor="@color/text_color"
+                    android:textSize="16sp"
+                    android:textStyle="bold" />
+
+
+                <Button
+                    android:id="@+id/brown_button"
+                    android:layout_width="96dp"
+                    android:layout_height="96dp"
+                    android:layout_marginEnd="8dp"
+                    android:background="@drawable/circle"
+                    android:backgroundTint="#88540B"
+                    android:fontFamily="@font/andika"
+                    android:gravity="center"
+                    android:text="Brown"
+                    android:textColor="@color/text_color"
+                    android:textAllCaps="false"
+                    android:textSize="16sp"
+                    android:textStyle="bold" />
+            </androidx.appcompat.widget.LinearLayoutCompat>
+        </androidx.appcompat.widget.LinearLayoutCompat>
+
+    </androidx.appcompat.widget.LinearLayoutCompat>
+
 </layout>
