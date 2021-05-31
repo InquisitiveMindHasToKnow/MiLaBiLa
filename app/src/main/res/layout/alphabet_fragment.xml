@@ -10,7 +10,7 @@
         android:background="@color/background_color">
 
         <TextView
-            android:id="@+id/the_alphabet_header"
+            android:id="@+id/the_alphabet_fragment_header_textview"
             android:layout_width="match_parent"
             android:layout_height="wrap_content"
             android:text="The Alphabet"
@@ -20,13 +20,46 @@
             android:gravity="center_horizontal"
             app:layout_constraintTop_toTopOf="parent"/>
 
+
+        <androidx.appcompat.widget.LinearLayoutCompat
+            android:id="@+id/selected_letter_and_image_linear"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:gravity="center_horizontal"
+            android:orientation="horizontal"
+            app:layout_constraintTop_toBottomOf="@id/the_alphabet_fragment_header_textview">
+            <ImageView
+                android:id="@+id/selected_letter_imageview"
+                android:layout_width="88dp"
+                android:layout_height="148dp"
+                android:layout_marginEnd="48dp"
+                android:src="@drawable/a"/>
+
+            <ImageView
+                android:id="@+id/letter_comparison_textview"
+                android:layout_width="88dp"
+                android:layout_marginStart="48dp"
+                android:layout_height="148dp"
+                android:src="@drawable/alligator"/>
+
+            </androidx.appcompat.widget.LinearLayoutCompat>
+
+        <TextView
+            android:id="@+id/detail_textview"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:textSize="18sp"
+            android:textColor="@color/text_color"
+            android:text="Aa is for Alligator"
+            android:gravity="center_horizontal"
+            app:layout_constraintTop_toBottomOf="@id/selected_letter_and_image_linear"/>
+
         <androidx.recyclerview.widget.RecyclerView
             android:id="@+id/alphabet_list_recycler"
             android:layout_width="match_parent"
             android:layout_height="wrap_content"
-            app:layout_constraintTop_toBottomOf="@id/the_alphabet_header"
+            app:layout_constraintBottom_toBottomOf="parent"
             />
-
 
     </androidx.constraintlayout.widget.ConstraintLayout>
 </layout>

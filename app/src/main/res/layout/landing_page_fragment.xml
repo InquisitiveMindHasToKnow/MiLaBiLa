@@ -48,7 +48,7 @@
                     android:layout_width="wrap_content"
                     android:layout_height="wrap_content"
                     android:background="@drawable/circle"
-                    android:text="Letters"
+                    android:text="Alphabet"
                     android:textAllCaps="false"
                     android:textColor="@color/text_color"
                     android:layout_marginBottom="8dp"

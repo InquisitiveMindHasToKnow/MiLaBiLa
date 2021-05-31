@@ -7,19 +7,31 @@ import android.widget.ImageView
 import androidx.recyclerview.widget.RecyclerView
 import org.ohmstheresistance.milabila.R
 import org.ohmstheresistance.milabila.dataclasses.AlphabetData
+import org.ohmstheresistance.milabila.fragments.AlphabetFragment
 
-
-class AlphabetAdapter(private val letterList: ArrayList<AlphabetData>) :
-    RecyclerView.Adapter<AlphabetAdapter.AlphabetViewHolder>() {
+class AlphabetAdapter(private val letterList: List<AlphabetData>, val alphabetFragment: AlphabetFragment)  :RecyclerView.Adapter<AlphabetAdapter.AlphabetViewHolder>() {
     override fun onCreateViewHolder(parent: ViewGroup, viewType: Int): AlphabetViewHolder {
         val v = LayoutInflater.from(parent.context)
             .inflate(R.layout.alphabet_itemview, parent, false)
+
 
         return AlphabetViewHolder(v)
     }
 
     override fun onBindViewHolder(holder: AlphabetViewHolder, position: Int) {
         holder.bindItems(letterList[position])
+
+
+        val letterImage: ImageView =
+            holder.itemView.findViewById(R.id.letter_imageview) as ImageView
+        val letterClicked = letterList[position].letterCapitalAndCommon
+        val detailImageName = letterList[position].detailImageName
+
+        holder.itemView.setOnClickListener {
+
+           alphabetFragment.updateText(letterClicked, detailImageName)
+
+        }
     }
 
     override fun getItemCount(): Int {
@@ -27,10 +39,13 @@ class AlphabetAdapter(private val letterList: ArrayList<AlphabetData>) :
     }
 
     class AlphabetViewHolder(itemView: View) : RecyclerView.ViewHolder(itemView) {
-
         fun bindItems(alphabetDataInfo: AlphabetData) {
             val letterImage: ImageView = itemView.findViewById(R.id.letter_imageview) as ImageView
-            letterImage.setImageResource(alphabetDataInfo.letter)
+            letterImage.setImageResource(alphabetDataInfo.letterImage)
+
         }
+    }
+    interface UpdateDetailTextviewInterface {
+        fun updateText(letter: String, comparisonWord: String)
     }
 }

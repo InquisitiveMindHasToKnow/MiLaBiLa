@@ -9,57 +9,63 @@ import androidx.databinding.DataBindingUtil
 import androidx.recyclerview.widget.GridLayoutManager
 import org.ohmstheresistance.milabila.R
 import org.ohmstheresistance.milabila.databinding.AlphabetFragmentBinding
-import org.ohmstheresistance.milabila.databinding.LandingPageFragmentBinding
 import org.ohmstheresistance.milabila.dataclasses.AlphabetData
 import org.ohmstheresistance.milabila.recyclerview.AlphabetAdapter
 
-class AlphabetFragment : Fragment() {
+class AlphabetFragment : Fragment(), AlphabetAdapter.UpdateDetailTextviewInterface {
 
-    private val letterList = ArrayList<AlphabetData>()
-    private val alphabetAdapter = AlphabetAdapter(letterList)
+    private val letterList = listOf(
+        AlphabetData(R.drawable.a, "Aa", "Alligator"),
+        AlphabetData(R.drawable.b, "Bb", "Bear"),
+        AlphabetData(R.drawable.c, "Cc", "Cat"),
+        AlphabetData(R.drawable.d, "Dd", "Dog"),
+        AlphabetData(R.drawable.e, "Ee", "Elephant"),
+        AlphabetData(R.drawable.f, "Ff", "Fire"),
+        AlphabetData(R.drawable.g, "Gg", "Giraffe"),
+        AlphabetData(R.drawable.h, "Hh", "Horse"),
+        AlphabetData(R.drawable.i, "Ii", "Iguana"),
+        AlphabetData(R.drawable.j, "Jj", "Jellyfish"),
+        AlphabetData(R.drawable.k, "Kk", "Koala"),
+        AlphabetData(R.drawable.l, "Ll", "Lion"),
+        AlphabetData(R.drawable.m, "Mm", "Monkey"),
+        AlphabetData(R.drawable.n, "Nn", "Narwhal"),
+        AlphabetData(R.drawable.o, "Oo", "Owl"),
+        AlphabetData(R.drawable.p, "Pp", "Pig"),
+        AlphabetData(R.drawable.q, "Qq", "Quail"),
+        AlphabetData(R.drawable.r, "Rr", "Rabbit"),
+        AlphabetData(R.drawable.s, "Ss", "Snake"),
+        AlphabetData(R.drawable.t, "Tt", "Tiger"),
+        AlphabetData(R.drawable.u, "Uu", "Unicorn"),
+        AlphabetData(R.drawable.v, "Vv", "Vulture"),
+        AlphabetData(R.drawable.w, "Ww", "Worm"),
+        AlphabetData(R.drawable.x, "Xx", "X-ray"),
+        AlphabetData(R.drawable.y, "Yy", "Yak"),
+        AlphabetData(R.drawable.z, "Zz", "Zebra")
+    )
+    private val alphabetAdapter = AlphabetAdapter(letterList, this)
+    lateinit var alphabetFragmentBinding: AlphabetFragmentBinding
 
     override fun onCreateView(
         inflater: LayoutInflater, container: ViewGroup?,
         savedInstanceState: Bundle?
     ): View? {
-        val alphabetFragmentBinding = DataBindingUtil.inflate<AlphabetFragmentBinding>(inflater, R.layout.alphabet_fragment, container, false)
+        alphabetFragmentBinding = DataBindingUtil.inflate(
+            inflater, R.layout.alphabet_fragment,
+            container,
+            false
+        )
 
-        alphabetFragmentBinding.alphabetListRecycler.layoutManager = GridLayoutManager(context, 4)
-        alphabetFragmentBinding.alphabetListRecycler.adapter = alphabetAdapter
-
-        addLetters()
+        setUpLettersRecyclerView()
 
         return alphabetFragmentBinding.root
     }
 
-    private fun addLetters(){
-
-        letterList.add(AlphabetData(R.drawable.a))
-        letterList.add(AlphabetData(R.drawable.b))
-        letterList.add(AlphabetData(R.drawable.c))
-        letterList.add(AlphabetData(R.drawable.d))
-        letterList.add(AlphabetData(R.drawable.e))
-        letterList.add(AlphabetData(R.drawable.f))
-        letterList.add(AlphabetData(R.drawable.g))
-        letterList.add(AlphabetData(R.drawable.h))
-        letterList.add(AlphabetData(R.drawable.i))
-        letterList.add(AlphabetData(R.drawable.j))
-        letterList.add(AlphabetData(R.drawable.k))
-        letterList.add(AlphabetData(R.drawable.l))
-        letterList.add(AlphabetData(R.drawable.m))
-        letterList.add(AlphabetData(R.drawable.n))
-        letterList.add(AlphabetData(R.drawable.o))
-        letterList.add(AlphabetData(R.drawable.p))
-        letterList.add(AlphabetData(R.drawable.q))
-        letterList.add(AlphabetData(R.drawable.r))
-        letterList.add(AlphabetData(R.drawable.s))
-        letterList.add(AlphabetData(R.drawable.t))
-        letterList.add(AlphabetData(R.drawable.u))
-        letterList.add(AlphabetData(R.drawable.v))
-        letterList.add(AlphabetData(R.drawable.w))
-        letterList.add(AlphabetData(R.drawable.x))
-        letterList.add(AlphabetData(R.drawable.y))
-        letterList.add(AlphabetData(R.drawable.z))
-
+    private fun setUpLettersRecyclerView() {
+        alphabetFragmentBinding.alphabetListRecycler.layoutManager = GridLayoutManager(context, 4)
+        alphabetFragmentBinding.alphabetListRecycler.adapter = alphabetAdapter
     }
-   }
+
+    override fun updateText(letter: String, comparisonWord: String) {
+        alphabetFragmentBinding.detailTextview.text = letter + " is for " + comparisonWord
+    }
+}
