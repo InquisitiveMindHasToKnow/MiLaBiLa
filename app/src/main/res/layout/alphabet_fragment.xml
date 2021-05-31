@@ -36,7 +36,7 @@
                 android:src="@drawable/a"/>
 
             <ImageView
-                android:id="@+id/letter_comparison_textview"
+                android:id="@+id/letter_comparison_imageview"
                 android:layout_width="88dp"
                 android:layout_marginStart="48dp"
                 android:layout_height="148dp"
