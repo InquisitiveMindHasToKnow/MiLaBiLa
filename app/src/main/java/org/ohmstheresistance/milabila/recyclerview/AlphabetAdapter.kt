@@ -29,12 +29,7 @@ class AlphabetAdapter(private val letterList: List<AlphabetData>, val alphabetFr
 
         holder.itemView.setOnClickListener {
 
-            Log.d("Item", position.toString())
-            Log.d("tryna see",letterList[position].letterCapitalAndCommon + " is for " + letterList[position].detailImageName)
-
-
             alphabetFragment.updateTextAndImages(letterClicked, detailImageName, positionOfLetterClicked)
-
         }
     }
 
