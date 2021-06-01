@@ -37,7 +37,6 @@
             android:layout_width="match_parent"
             android:layout_height="wrap_content"
             android:background="@color/text_color"
-            android:orientation="vertical"
             android:padding="16dp"
             app:layout_constraintBottom_toBottomOf="parent"
             app:layout_constraintEnd_toEndOf="parent"
@@ -47,7 +46,7 @@
                     android:id="@+id/landing_page_alphabet_button"
                     android:layout_width="wrap_content"
                     android:layout_height="wrap_content"
-                    android:background="@drawable/circle"
+                    android:background="@drawable/circular_button_background"
                     android:text="Alphabet"
                     android:textAllCaps="false"
                     android:textColor="@color/text_color"
@@ -61,7 +60,7 @@
                     android:id="@+id/landing_page_numbers_button"
                     android:layout_width="wrap_content"
                     android:layout_height="wrap_content"
-                    android:background="@drawable/circle"
+                    android:background="@drawable/circular_button_background"
                     android:text="Numbers"
                     android:textAllCaps="false"
                     android:layout_marginBottom="8dp"
@@ -75,7 +74,7 @@
                     android:id="@+id/landing_page_colors_button"
                     android:layout_width="wrap_content"
                     android:layout_height="wrap_content"
-                    android:background="@drawable/circle"
+                    android:background="@drawable/circular_button_background"
                     android:text="Colors"
                     android:textAllCaps="false"
                     android:textColor="@color/text_color"
@@ -88,7 +87,7 @@
                     android:id="@+id/landing_page_shapes_button"
                     android:layout_width="wrap_content"
                     android:layout_height="wrap_content"
-                    android:background="@drawable/circle"
+                    android:background="@drawable/circular_button_background"
                     android:text="Shapes"
                     android:textAllCaps="false"
                     android:textColor="@color/text_color"
@@ -98,6 +97,5 @@
                     app:layout_constraintTop_toBottomOf="@id/landing_page_numbers_button"
                     app:layout_constraintBottom_toBottomOf="parent"/>
         </androidx.constraintlayout.widget.ConstraintLayout>
-
     </androidx.constraintlayout.widget.ConstraintLayout>
 </layout>

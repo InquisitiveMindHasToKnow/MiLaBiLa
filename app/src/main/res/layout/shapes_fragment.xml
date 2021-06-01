@@ -7,10 +7,40 @@
         android:layout_height="match_parent"
         tools:context=".fragments.ShapesFragment">
 
-        <TextView
+        <androidx.appcompat.widget.LinearLayoutCompat
             android:layout_width="match_parent"
-            android:layout_height="match_parent"
-            android:text="SHAPES" />
+            android:layout_height="wrap_content"
+            android:orientation="vertical"
+            app:layout_constraintTop_toTopOf="parent"
+            app:layout_constraintStart_toStartOf="parent"
+            app:layout_constraintEnd_toEndOf="parent"
+            >
+
+        <TextView
+            android:id="@+id/shapefrag_shape_name_textview"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:textSize="24sp"
+            android:gravity="center_horizontal"
+            android:textStyle="bold"
+            android:textAllCaps="true"
+            android:text="TRIANGLE" />
+
+        <ImageView
+            android:id="@+id/shapesfrag_shape_imageview"
+            android:layout_width="match_parent"
+            android:layout_height="108dp"
+            android:src="@drawable/triangle"/>
+
+
+        </androidx.appcompat.widget.LinearLayoutCompat>
+
+        <androidx.recyclerview.widget.RecyclerView
+            android:id="@+id/shapes_recycler"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            app:layout_constraintBottom_toBottomOf="parent" />
 
     </androidx.constraintlayout.widget.ConstraintLayout>
+
 </layout>

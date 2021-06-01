@@ -1,6 +1,5 @@
 package org.ohmstheresistance.milabila.recyclerview
 
-import android.util.Log
 import android.view.LayoutInflater
 import android.view.View
 import android.view.ViewGroup
@@ -10,11 +9,10 @@ import org.ohmstheresistance.milabila.R
 import org.ohmstheresistance.milabila.dataclasses.AlphabetData
 import org.ohmstheresistance.milabila.fragments.AlphabetFragment
 
-class AlphabetAdapter(private val letterList: List<AlphabetData>, val alphabetFragment: AlphabetFragment)  :RecyclerView.Adapter<AlphabetAdapter.AlphabetViewHolder>() {
+class AlphabetAdapter(private val letterList: List<AlphabetData>, val alphabetFragment: AlphabetFragment):RecyclerView.Adapter<AlphabetAdapter.AlphabetViewHolder>() {
     override fun onCreateViewHolder(parent: ViewGroup, viewType: Int): AlphabetViewHolder {
         val v = LayoutInflater.from(parent.context)
             .inflate(R.layout.alphabet_itemview, parent, false)
-
 
         return AlphabetViewHolder(v)
     }
