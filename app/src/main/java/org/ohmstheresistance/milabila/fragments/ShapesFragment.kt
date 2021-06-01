@@ -21,7 +21,7 @@ private val shapesList = listOf(
     ShapeData(R.drawable.diamond, "Diamond"),
     ShapeData(R.drawable.hexagon, "Hexagon"),
     ShapeData(R.drawable.pentagon, "Pentagon"),
-    ShapeData(R.drawable.octogon, "Octagon"),
+    ShapeData(R.drawable.octagon, "Octagon"),
     ShapeData(R.drawable.triangle, "Triangle"))
 
 
