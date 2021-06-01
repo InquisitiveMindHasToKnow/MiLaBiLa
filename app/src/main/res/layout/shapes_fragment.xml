@@ -5,9 +5,11 @@
     <androidx.constraintlayout.widget.ConstraintLayout
         android:layout_width="match_parent"
         android:layout_height="match_parent"
+        android:background="@color/background_color"
         tools:context=".fragments.ShapesFragment">
 
         <androidx.appcompat.widget.LinearLayoutCompat
+            android:id="@+id/shape_frag_imgview_textview_linear"
             android:layout_width="match_parent"
             android:layout_height="wrap_content"
             android:orientation="vertical"
@@ -22,16 +24,31 @@
             android:layout_height="wrap_content"
             android:textSize="24sp"
             android:gravity="center_horizontal"
+            android:background="@color/background_color"
+            android:paddingTop="8dp"
+            android:paddingBottom="8dp"
             android:textStyle="bold"
-            android:textAllCaps="true"
-            android:text="TRIANGLE" />
+            android:textAllCaps="true" />
 
         <ImageView
             android:id="@+id/shapesfrag_shape_imageview"
-            android:layout_width="match_parent"
-            android:layout_height="204dp"
-            android:src="@drawable/triangle"/>
+            android:layout_width="wrap_content"
+            android:layout_height="256dp"
+            android:padding="8dp"
+            />
 
+        <TextView
+            android:id="@+id/selected_image_name_and_color_textview"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:textSize="18sp"
+            android:gravity="center_horizontal"
+            android:background="@color/background_color"
+            android:textColor="@color/white"
+            android:paddingTop="8dp"
+            android:paddingBottom="8dp"
+            android:textStyle="bold"
+            android:textAllCaps="true"/>
 
         </androidx.appcompat.widget.LinearLayoutCompat>
 
@@ -39,6 +56,7 @@
             android:id="@+id/shapes_recycler"
             android:layout_width="match_parent"
             android:layout_height="wrap_content"
+            android:background="@color/background_color"
             app:layout_constraintBottom_toBottomOf="parent" />
 
     </androidx.constraintlayout.widget.ConstraintLayout>

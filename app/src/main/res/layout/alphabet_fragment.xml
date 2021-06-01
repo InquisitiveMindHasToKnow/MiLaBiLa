@@ -16,6 +16,7 @@
             android:fontFamily="@font/andika"
             android:gravity="center_horizontal"
             android:text="The Alphabet"
+            android:textStyle="bold"
             android:textColor="@color/text_color"
             android:textSize="24sp"
             app:layout_constraintTop_toTopOf="parent" />
@@ -50,8 +51,10 @@
             android:layout_width="match_parent"
             android:layout_height="wrap_content"
             android:gravity="center_horizontal"
+            android:fontFamily="@font/andika"
             android:text="Aa is for Alligator"
             android:textColor="@color/text_color"
+            android:textStyle="bold"
             android:textSize="20sp"
             app:layout_constraintBottom_toTopOf="@id/alphabet_list_recycler"
             app:layout_constraintTop_toBottomOf="@id/selected_letter_and_image_linear" />
