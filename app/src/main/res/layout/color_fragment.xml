@@ -4,42 +4,24 @@
     xmlns:tools="http://schemas.android.com/tools"
     tools:context=".fragments.Color">
 
-    <androidx.appcompat.widget.LinearLayoutCompat
+    <androidx.constraintlayout.widget.ConstraintLayout
+        android:id="@+id/color_frag_constraint"
         android:layout_width="match_parent"
         android:layout_height="match_parent"
-        android:background="@color/background_color"
-        android:orientation="vertical"
-        android:weightSum="2">
+        android:background="@color/white">
 
-        <androidx.appcompat.widget.LinearLayoutCompat
-            android:id="@+id/color_frag_top_half_linear"
+
+        <TextView
+            android:id="@+id/color_name_textview"
             android:layout_width="match_parent"
-            android:layout_height="match_parent"
-            android:layout_weight="1"
-            android:background="@color/white"
-            android:orientation="vertical">
-
-
-        </androidx.appcompat.widget.LinearLayoutCompat>
-
-        <androidx.appcompat.widget.LinearLayoutCompat
-            android:layout_width="match_parent"
-            android:layout_height="match_parent"
-            android:layout_weight="1"
+            android:layout_height="wrap_content"
+            android:textAllCaps="true"
+            android:textStyle="bold"
+            android:fontFamily="@font/andika"
             android:gravity="center_horizontal"
-            android:background="@color/text_color"
-            android:orientation="vertical">
-
-            <androidx.appcompat.widget.LinearLayoutCompat
-                android:id="@+id/red_blue_yellow_linear"
-                android:layout_width="match_parent"
-                android:layout_height="wrap_content"
-                android:gravity="center_horizontal"
-                android:layout_marginTop="4dp"
-                android:padding="4dp"
-
-                android:layout_marginBottom="8dp"
-                android:orientation="horizontal">
+            android:background="@color/white"
+            android:textSize="48sp"
+            app:layout_constraintTop_toTopOf="parent" />
 
                 <Button
                     android:id="@+id/red_button"
@@ -54,7 +36,11 @@
                     android:text="Red"
                     android:textAllCaps="false"
                     android:textColor="@color/text_color"
-                    android:textSize="16sp"
+                    android:textSize="12sp"
+                    app:layout_constraintTop_toBottomOf="@id/color_name_textview"
+                    app:layout_constraintEnd_toStartOf="@id/blue_button"
+                    app:layout_constraintStart_toStartOf="parent"
+                    app:layout_constraintBottom_toTopOf="@id/purple_button"
                     />
 
                 <Button
@@ -69,9 +55,12 @@
                     android:textAllCaps="false"
                     android:text="Blue"
                     android:textColor="@color/text_color"
-                    android:textSize="16sp"
-                    android:textStyle="bold" />
-
+                    android:textSize="12sp"
+                    android:textStyle="bold"
+                    app:layout_constraintTop_toBottomOf="@id/color_name_textview"
+                    app:layout_constraintStart_toEndOf="@id/red_button"
+                    app:layout_constraintEnd_toStartOf="@id/yellow_button"
+                    app:layout_constraintBottom_toTopOf="@id/green_button"/>
 
                 <Button
                     android:id="@+id/yellow_button"
@@ -85,17 +74,14 @@
                     android:text="Yellow"
                     android:textColor="@color/text_color"
                     android:textAllCaps="false"
-                    android:textSize="16sp"
-                    android:textStyle="bold" />
-            </androidx.appcompat.widget.LinearLayoutCompat>
-            <androidx.appcompat.widget.LinearLayoutCompat
-                android:id="@+id/purple_green_orange_linear"
-                android:layout_width="match_parent"
-                android:layout_height="wrap_content"
-                android:gravity="center_horizontal"
-                android:layout_marginBottom="4dp"
-                android:padding="4dp"
-                android:orientation="horizontal">
+                    android:textSize="12sp"
+                    android:textStyle="bold"
+                    app:layout_constraintStart_toEndOf="@id/blue_button"
+                    app:layout_constraintEnd_toEndOf="parent"
+                    app:layout_constraintTop_toBottomOf="@id/color_name_textview"
+                    app:layout_constraintBottom_toTopOf="@id/orange_button"/>
+
+
 
                 <Button
                     android:id="@+id/purple_button"
@@ -110,7 +96,11 @@
                     android:text="Purple"
                     android:textAllCaps="false"
                     android:textColor="@color/text_color"
-                    android:textSize="16sp"
+                    android:textSize="12sp"
+                    app:layout_constraintStart_toStartOf="parent"
+                    app:layout_constraintTop_toBottomOf="@id/red_button"
+                    app:layout_constraintEnd_toStartOf="@id/green_button"
+                    app:layout_constraintBottom_toTopOf="@id/black_button"
                     />
 
                 <Button
@@ -125,8 +115,12 @@
                     android:textAllCaps="false"
                     android:text="Green"
                     android:textColor="@color/text_color"
-                    android:textSize="16sp"
-                    android:textStyle="bold" />
+                    android:textSize="12sp"
+                    android:textStyle="bold"
+                    app:layout_constraintStart_toEndOf="@id/purple_button"
+                    app:layout_constraintEnd_toStartOf="@id/orange_button"
+                    app:layout_constraintTop_toBottomOf="@id/blue_button"
+                    app:layout_constraintBottom_toTopOf="@id/pink_button"/>
 
 
                 <Button
@@ -141,18 +135,12 @@
                     android:text="Orange"
                     android:textColor="@color/text_color"
                     android:textAllCaps="false"
-                    android:textSize="16sp"
-                    android:textStyle="bold" />
-            </androidx.appcompat.widget.LinearLayoutCompat>
-
-            <androidx.appcompat.widget.LinearLayoutCompat
-                android:id="@+id/black_pink_brown_linear"
-                android:layout_width="match_parent"
-                android:layout_height="wrap_content"
-                android:gravity="center_horizontal"
-                android:layout_marginBottom="4dp"
-                android:padding="4dp"
-                android:orientation="horizontal">
+                    android:textSize="12sp"
+                    android:textStyle="bold"
+                    app:layout_constraintStart_toEndOf="@id/green_button"
+                    app:layout_constraintEnd_toEndOf="parent"
+                    app:layout_constraintTop_toBottomOf="@id/yellow_button"
+                    app:layout_constraintBottom_toTopOf="@id/brown_button"/>
 
                 <Button
                     android:id="@+id/black_button"
@@ -167,7 +155,12 @@
                     android:text="Black"
                     android:textAllCaps="false"
                     android:textColor="@color/text_color"
-                    android:textSize="16sp"
+                    android:textSize="12sp"
+                    app:layout_constraintStart_toStartOf="parent"
+                    app:layout_constraintBottom_toTopOf="@id/gray_button"
+                    app:layout_constraintEnd_toStartOf="@id/pink_button"
+                    app:layout_constraintTop_toBottomOf="@id/purple_button"
+
                     />
 
                 <Button
@@ -182,8 +175,12 @@
                     android:textAllCaps="false"
                     android:text="Pink"
                     android:textColor="@color/text_color"
-                    android:textSize="16sp"
-                    android:textStyle="bold" />
+                    android:textSize="12sp"
+                    android:textStyle="bold"
+                    app:layout_constraintStart_toEndOf="@id/black_button"
+                    app:layout_constraintEnd_toStartOf="@id/brown_button"
+                    app:layout_constraintBottom_toTopOf="@id/white_button"
+                    app:layout_constraintTop_toBottomOf="@id/green_button"/>
 
 
                 <Button
@@ -198,11 +195,69 @@
                     android:text="Brown"
                     android:textColor="@color/text_color"
                     android:textAllCaps="false"
-                    android:textSize="16sp"
-                    android:textStyle="bold" />
-            </androidx.appcompat.widget.LinearLayoutCompat>
-        </androidx.appcompat.widget.LinearLayoutCompat>
+                    android:textSize="12sp"
+                    android:textStyle="bold"
+                    app:layout_constraintStart_toEndOf="@id/pink_button"
+                    app:layout_constraintEnd_toEndOf="parent"
+                    app:layout_constraintBottom_toTopOf="@id/maroon_button"
+                    app:layout_constraintTop_toBottomOf="@id/orange_button"/>
 
-    </androidx.appcompat.widget.LinearLayoutCompat>
+        <Button
+            android:id="@+id/gray_button"
+            android:layout_width="96dp"
+            android:layout_height="96dp"
+            android:layout_marginEnd="8dp"
+            android:background="@drawable/circle"
+            android:backgroundTint="#808080"
+            android:fontFamily="@font/andika"
+            android:gravity="center"
+            android:text="Gray"
+            android:textColor="@color/text_color"
+            android:textAllCaps="false"
+            android:textSize="12sp"
+            android:textStyle="bold"
+            app:layout_constraintStart_toStartOf="parent"
+            app:layout_constraintEnd_toStartOf="@id/white_button"
+            app:layout_constraintBottom_toBottomOf="parent"
+            app:layout_constraintTop_toBottomOf="@id/black_button"/>
+
+        <Button
+            android:id="@+id/white_button"
+            android:layout_width="96dp"
+            android:layout_height="96dp"
+            android:layout_marginEnd="8dp"
+            android:background="@drawable/circle"
+            android:backgroundTint="#FFF"
+            android:fontFamily="@font/andika"
+            android:gravity="center"
+            android:text="White"
+            android:textColor="@color/text_color"
+            android:textAllCaps="false"
+            android:textSize="12sp"
+            android:textStyle="bold"
+            app:layout_constraintStart_toEndOf="@id/gray_button"
+            app:layout_constraintEnd_toStartOf="@id/maroon_button"
+            app:layout_constraintBottom_toBottomOf="parent"
+            app:layout_constraintTop_toBottomOf="@id/pink_button"/>
+
+        <Button
+            android:id="@+id/maroon_button"
+            android:layout_width="96dp"
+            android:layout_height="96dp"
+            android:layout_marginEnd="8dp"
+            android:background="@drawable/circle"
+            android:backgroundTint="#800000"
+            android:fontFamily="@font/andika"
+            android:gravity="center"
+            android:text="Maroon"
+            android:textColor="@color/text_color"
+            android:textAllCaps="false"
+            android:textSize="12sp"
+            android:textStyle="bold"
+            app:layout_constraintStart_toEndOf="@id/white_button"
+            app:layout_constraintEnd_toEndOf="parent"
+            app:layout_constraintBottom_toBottomOf="parent"
+            app:layout_constraintTop_toBottomOf="@id/brown_button"/>
+    </androidx.constraintlayout.widget.ConstraintLayout>
 
 </layout>
