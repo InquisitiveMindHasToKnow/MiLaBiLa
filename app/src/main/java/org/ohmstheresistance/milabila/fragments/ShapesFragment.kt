@@ -1,5 +1,6 @@
 package org.ohmstheresistance.milabila.fragments
 
+import android.graphics.Color
 import android.os.Bundle
 import androidx.fragment.app.Fragment
 import android.view.LayoutInflater
@@ -22,7 +23,11 @@ private val shapesList = listOf(
     ShapeData(R.drawable.hexagon, "Hexagon"),
     ShapeData(R.drawable.pentagon, "Pentagon"),
     ShapeData(R.drawable.octagon, "Octagon"),
-    ShapeData(R.drawable.triangle, "Triangle"))
+    ShapeData(R.drawable.triangle, "Triangle"),
+    ShapeData(R.drawable.star, "Star"),
+    ShapeData(R.drawable.cross, "Cross")
+)
+
 
 
 
@@ -43,15 +48,52 @@ class ShapesFragment : Fragment(), ShapesAdapter.ShapesViewHolder.UpdateShapeIma
     }
 
     private fun setUpLettersRecyclerView() {
-        shapesFragmentBinding.shapesRecycler.layoutManager = GridLayoutManager(context, 5)
+        shapesFragmentBinding.shapesRecycler.layoutManager = GridLayoutManager(context, 4)
         shapesFragmentBinding.shapesRecycler.adapter = shapesAdapter
     }
 
     override fun updateShapeImageAndName(clickedShapeName: String, clickedShapeImage: Int) {
-        shapesFragmentBinding.shapefragShapeNameTextview.text = clickedShapeName
+
+        val colors = listOf("#FF0000", "#0000FF", "#FFFF00", "#800080", "#008000", "#FFA500", "#FFC0CB", "#88540B", "#808080", "#800000")
+
+        for(i in colors.indices){
+            var colorPicked = colors.random()
+            shapesFragmentBinding.shapesfragShapeImageview.setBackgroundColor(Color.parseColor(colorPicked))
+            shapesFragmentBinding.shapefragShapeNameTextview.setTextColor(Color.parseColor(colorPicked))
+
+            when(colorPicked){
+                "#FF0000" -> { colorPicked = "Red" }
+                "#0000FF" -> { colorPicked ="Blue"}
+                "#FFFF00" -> { colorPicked ="Yellow"}
+                "#800080" -> { colorPicked ="Purple"}
+                "#008000" -> { colorPicked ="Green"}
+                "#FFA500" -> { colorPicked ="Orange"}
+                "#FFC0CB" -> { colorPicked ="Pink"}
+                "#88540B" -> { colorPicked ="Brown"}
+                "#800000" -> { colorPicked ="Maroon"}
+                "#808080" -> { colorPicked = "Gray"}
+            }
+            shapesFragmentBinding.selectedImageNameAndColorTextview.text = "The " + clickedShapeName + " is " + colorPicked
+
+
+        }
 
         for (i in shapesList.indices){
             shapesFragmentBinding.shapesfragShapeImageview.setImageResource(clickedShapeImage)
         }
+
+        shapesFragmentBinding.shapefragShapeNameTextview.text = clickedShapeName
+
     }
+
+//    private fun changeImageViewBackgroundColor(){
+//        val colors = listOf("#FF0000", "#0000FF", "#FFFF00", "#800080", "#008000", "#FFA500", "#FFC0CB", "#88540B", "#808080", "#800000")
+//
+//        for(i in colors.indices){
+//           val colorPicked = colors.random()
+//            shapesFragmentBinding.shapesfragShapeImageview.setBackgroundColor(Color.parseColor(colorPicked))
+//            shapesFragmentBinding.shapefragShapeNameTextview.setTextColor(Color.parseColor(colorPicked))
+//
+//        }
+//    }
 }
