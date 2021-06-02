@@ -2,16 +2,19 @@ package org.ohmstheresistance.milabila.fragments
 
 import android.graphics.Color
 import android.os.Bundle
+import android.speech.tts.TextToSpeech
 import androidx.fragment.app.Fragment
 import android.view.LayoutInflater
 import android.view.View
 import android.view.ViewGroup
+import android.widget.Toast
 import androidx.databinding.DataBindingUtil
 import androidx.recyclerview.widget.GridLayoutManager
 import org.ohmstheresistance.milabila.R
 import org.ohmstheresistance.milabila.databinding.ShapesFragmentBinding
 import org.ohmstheresistance.milabila.dataclasses.ShapeData
 import org.ohmstheresistance.milabila.recyclerview.ShapesAdapter
+import java.util.*
 
 private val shapesList = listOf(
     ShapeData(R.drawable.square, "Square"),
@@ -31,9 +34,10 @@ private val shapesList = listOf(
 
 
 
-class ShapesFragment : Fragment(), ShapesAdapter.ShapesViewHolder.UpdateShapeImageAndNameInterface {
+class ShapesFragment : Fragment(), ShapesAdapter.ShapesViewHolder.UpdateShapeImageAndNameInterface, TextToSpeech.OnInitListener {
 
     lateinit var shapesFragmentBinding: ShapesFragmentBinding
+    lateinit var textToSpeech: TextToSpeech
     private val shapesAdapter = ShapesAdapter(shapesList, this)
 
     override fun onCreateView(
@@ -41,6 +45,8 @@ class ShapesFragment : Fragment(), ShapesAdapter.ShapesViewHolder.UpdateShapeIma
         savedInstanceState: Bundle?
     ): View? {
        shapesFragmentBinding = DataBindingUtil.inflate(inflater, R.layout.shapes_fragment, container, false)
+
+        textToSpeech = TextToSpeech(context, this)
 
         setUpLettersRecyclerView()
 
@@ -58,6 +64,8 @@ class ShapesFragment : Fragment(), ShapesAdapter.ShapesViewHolder.UpdateShapeIma
 
         for(i in colors.indices){
             var colorPicked = colors.random()
+
+
             shapesFragmentBinding.shapesfragShapeImageview.setBackgroundColor(Color.parseColor(colorPicked))
             shapesFragmentBinding.shapefragShapeNameTextview.setTextColor(Color.parseColor(colorPicked))
 
@@ -73,8 +81,11 @@ class ShapesFragment : Fragment(), ShapesAdapter.ShapesViewHolder.UpdateShapeIma
                 "#800000" -> { colorPicked ="Maroon"}
                 "#808080" -> { colorPicked = "Gray"}
             }
-            shapesFragmentBinding.selectedImageNameAndColorTextview.text = "The " + clickedShapeName + " is " + colorPicked
+            val sentenceToSay = clickedShapeName + ". The " + clickedShapeName + " is " + colorPicked
+            val sentenceToDisplay = "The " + clickedShapeName + " is " + colorPicked + "."
+            shapesFragmentBinding.selectedImageNameAndColorTextview.text = sentenceToDisplay
 
+            textToSpeech.speak(sentenceToSay, TextToSpeech.QUEUE_FLUSH, null)
 
         }
 
@@ -86,6 +97,26 @@ class ShapesFragment : Fragment(), ShapesAdapter.ShapesViewHolder.UpdateShapeIma
 
     }
 
+    override fun onInit(textToSpeechInitialized: Int) {
+        if (textToSpeechInitialized == TextToSpeech.SUCCESS) {
+            val res: Int = textToSpeech.setLanguage(Locale.ENGLISH)
+            if (res == TextToSpeech.LANG_MISSING_DATA || res == TextToSpeech.LANG_NOT_SUPPORTED) {
+                Toast.makeText(context, "Unsupported language.", Toast.LENGTH_LONG).show()
+            }
+        } else {
+            Toast.makeText(context, "Text to speech initialization failed.", Toast.LENGTH_LONG)
+                .show()
+        }
+    }
+
+    override fun onDestroy() {
+        super.onDestroy()
+        if (textToSpeech != null) {
+            textToSpeech.stop()
+            textToSpeech.shutdown()
+        }
+    }
+}
 //    private fun changeImageViewBackgroundColor(){
 //        val colors = listOf("#FF0000", "#0000FF", "#FFFF00", "#800080", "#008000", "#FFA500", "#FFC0CB", "#88540B", "#808080", "#800000")
 //
@@ -96,4 +127,3 @@ class ShapesFragment : Fragment(), ShapesAdapter.ShapesViewHolder.UpdateShapeIma
 //
 //        }
 //    }
-}
