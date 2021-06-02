@@ -67,7 +67,7 @@
             android:layout_height="wrap_content"
             android:gravity="center_horizontal"
             android:fontFamily="@font/andika"
-            android:text="There is one finger"
+            android:text="There is one finger."
             android:textColor="@color/text_color"
             android:textStyle="bold"
             android:textSize="20sp"
