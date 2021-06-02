@@ -1,18 +1,22 @@
 package org.ohmstheresistance.milabila.fragments
 
 import android.os.Bundle
+import android.speech.tts.TextToSpeech
 import androidx.fragment.app.Fragment
 import android.view.LayoutInflater
 import android.view.View
 import android.view.ViewGroup
+import android.widget.Toast
 import androidx.databinding.DataBindingUtil
 import androidx.recyclerview.widget.GridLayoutManager
 import org.ohmstheresistance.milabila.R
 import org.ohmstheresistance.milabila.databinding.AlphabetFragmentBinding
 import org.ohmstheresistance.milabila.dataclasses.AlphabetData
 import org.ohmstheresistance.milabila.recyclerview.AlphabetAdapter
+import java.util.*
 
-class AlphabetFragment : Fragment(), AlphabetAdapter.UpdateDetailTextviewInterface {
+class AlphabetFragment : Fragment(), AlphabetAdapter.UpdateDetailTextviewInterface,
+    TextToSpeech.OnInitListener {
 
     private val letterList = listOf(
         AlphabetData(R.drawable.a, "Aa", "Alligator", R.drawable.alligator),
@@ -44,6 +48,7 @@ class AlphabetFragment : Fragment(), AlphabetAdapter.UpdateDetailTextviewInterfa
     )
     private val alphabetAdapter = AlphabetAdapter(letterList, this)
     lateinit var alphabetFragmentBinding: AlphabetFragmentBinding
+    lateinit var textToSpeech: TextToSpeech
 
     override fun onCreateView(
         inflater: LayoutInflater, container: ViewGroup?,
@@ -54,6 +59,7 @@ class AlphabetFragment : Fragment(), AlphabetAdapter.UpdateDetailTextviewInterfa
             container,
             false
         )
+        textToSpeech = TextToSpeech(context, this)
 
         setUpLettersRecyclerView()
 
@@ -65,13 +71,41 @@ class AlphabetFragment : Fragment(), AlphabetAdapter.UpdateDetailTextviewInterfa
         alphabetFragmentBinding.alphabetListRecycler.adapter = alphabetAdapter
     }
 
-    override fun updateTextAndImages(letter: String, comparisonWord: String, positionOfLetterClicked: Int) {
-        alphabetFragmentBinding.detailTextview.text = letter + " is for " + comparisonWord
+    override fun updateTextAndImages(
+        letter: String,
+        comparisonWord: String,
+        positionOfLetterClicked: Int
+    ) {
+        val sentenceToSay =  letter.substring(1) + " is for " + comparisonWord
+        val sentenceToDisplay = letter + " is for " + comparisonWord + "."
+        textToSpeech.speak(sentenceToSay, TextToSpeech.QUEUE_FLUSH, null)
 
 
-       for (i in letterList.indices){
+        alphabetFragmentBinding.detailTextview.text = sentenceToDisplay
+
+        for (i in letterList.indices) {
             alphabetFragmentBinding.selectedLetterImageview.setImageResource(letterList[positionOfLetterClicked].letterImage)
             alphabetFragmentBinding.letterComparisonImageview.setImageResource(letterList[positionOfLetterClicked].detailImage)
+        }
+    }
+
+    override fun onInit(textToSpeechInitialized: Int) {
+        if (textToSpeechInitialized == TextToSpeech.SUCCESS) {
+            val res: Int = textToSpeech.setLanguage(Locale.ENGLISH)
+            if (res == TextToSpeech.LANG_MISSING_DATA || res == TextToSpeech.LANG_NOT_SUPPORTED) {
+                Toast.makeText(context, "Unsupported language.", Toast.LENGTH_LONG).show()
+            }
+        } else {
+            Toast.makeText(context, "Text to speech initialization failed.", Toast.LENGTH_LONG)
+                .show()
+        }
+    }
+
+    override fun onDestroy() {
+        super.onDestroy()
+        if (textToSpeech != null) {
+            textToSpeech.stop()
+            textToSpeech.shutdown()
         }
     }
 }
