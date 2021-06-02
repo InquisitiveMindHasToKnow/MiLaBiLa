@@ -23,12 +23,14 @@ class NumbersAdapter(private val numberList: List<NumbersData>, private val numb
         val numberClicked = numberList[position].numberName
         val numberClickedImage = numberList[position].numberImage
         val numberClickedCount = numberList[position].numberCountImage
+        val nameOfCountedItem = numberList[position].nameOfCountedItemsOnImage
 
         holder.itemView.setOnClickListener {
             numbersFragment.updateNumberTextAndImages(
                 numberClicked,
                 numberClickedImage,
-                numberClickedCount
+                numberClickedCount,
+                nameOfCountedItem
             )
         }
     }
@@ -44,6 +46,6 @@ class NumbersAdapter(private val numberList: List<NumbersData>, private val numb
         }
     }
     interface UpdateNumberDetailsInterface {
-        fun updateNumberTextAndImages(numberName: String, numberImage: Int, numberCountImage: Int)
+        fun updateNumberTextAndImages(numberName: String, numberImage: Int, numberCountImage: Int, countedImageName: String)
     }
 }

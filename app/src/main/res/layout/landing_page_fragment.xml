@@ -22,9 +22,9 @@
 
         <ImageView
             android:id="@+id/landing_page_imageview"
-            android:layout_width="224dp"
+            android:layout_width="wrap_content"
             android:layout_height="224dp"
-            android:src="@drawable/milabila_logo"
+            android:src="@drawable/milabila_alt_logo"
             app:layout_constraintLeft_toLeftOf="parent"
             app:layout_constraintRight_toRightOf="parent"
             app:layout_constraintTop_toBottomOf="@id/landing_page_header_textview"
