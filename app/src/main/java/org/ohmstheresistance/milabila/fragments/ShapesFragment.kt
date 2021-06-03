@@ -117,13 +117,3 @@ class ShapesFragment : Fragment(), ShapesAdapter.ShapesViewHolder.UpdateShapeIma
         }
     }
 }
-//    private fun changeImageViewBackgroundColor(){
-//        val colors = listOf("#FF0000", "#0000FF", "#FFFF00", "#800080", "#008000", "#FFA500", "#FFC0CB", "#88540B", "#808080", "#800000")
-//
-//        for(i in colors.indices){
-//           val colorPicked = colors.random()
-//            shapesFragmentBinding.shapesfragShapeImageview.setBackgroundColor(Color.parseColor(colorPicked))
-//            shapesFragmentBinding.shapefragShapeNameTextview.setTextColor(Color.parseColor(colorPicked))
-//
-//        }
-//    }
