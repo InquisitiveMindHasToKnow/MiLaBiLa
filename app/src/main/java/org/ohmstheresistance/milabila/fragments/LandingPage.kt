@@ -28,6 +28,7 @@ lateinit var landingPageBinding: LandingPageFragmentBinding
         landingPageBinding.landingPageNumbersButton.setOnClickListener(Navigation.createNavigateOnClickListener(R.id.action_landingPage_to_numbersFragment))
         landingPageBinding.landingPageColorsButton.setOnClickListener(Navigation.createNavigateOnClickListener(R.id.action_landingPage_to_colorFragment))
         landingPageBinding.landingPageShapesButton.setOnClickListener(Navigation.createNavigateOnClickListener(R.id.action_landingPage_to_shapesFragment))
-
+        landingPageBinding.landingPageWeatherButton.setOnClickListener(Navigation.createNavigateOnClickListener(R.id.action_landingPage_to_weatherFragment))
+        landingPageBinding.landingPageDaysAndMonthsButton.setOnClickListener(Navigation.createNavigateOnClickListener(R.id.action_landingPage_to_daysAndMonthsFragment22))
     }
 }

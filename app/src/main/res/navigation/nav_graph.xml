@@ -25,6 +25,15 @@
             android:id="@+id/action_landingPage_to_shapesFragment"
             app:destination="@id/shapesFragment"
             app:popUpTo="@id/landingPage" />
+        <action
+            android:id="@+id/action_landingPage_to_weatherFragment"
+            app:destination="@id/weatherFragment" />
+        <action
+            android:id="@+id/action_landingPage_to_daysAndMonthsFragment"
+             />
+        <action
+            android:id="@+id/action_landingPage_to_daysAndMonthsFragment22"
+            app:destination="@id/daysAndMonthsFragment2" />
     </fragment>
     <fragment
         android:id="@+id/alphabetFragment"
@@ -42,4 +51,14 @@
         android:id="@+id/shapesFragment"
         android:name="org.ohmstheresistance.milabila.fragments.ShapesFragment"
         android:label="ShapesFragment" />
+    <fragment
+        android:id="@+id/weatherFragment"
+        android:name="org.ohmstheresistance.milabila.fragments.WeatherFragment"
+        android:label="weather_fragment"
+        tools:layout="@layout/weather_fragment" />
+    <fragment
+        android:id="@+id/daysAndMonthsFragment2"
+        android:name="org.ohmstheresistance.milabila.fragments.DaysAndMonthsFragment"
+        android:label="days_and_months_fragment"
+        tools:layout="@layout/days_and_months_fragment" />
 </navigation>
