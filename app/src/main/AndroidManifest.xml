@@ -8,8 +8,10 @@
         android:label="MiLaBiLa"
         android:roundIcon="@drawable/milabila_logo"
         android:supportsRtl="true"
+        android:configChanges="keyboardHidden|orientation|screenSize"
         android:theme="@style/Theme.MiLaBiLa">
         <activity android:name=".MainActivity">
+
             <intent-filter>
                 <action android:name="android.intent.action.MAIN" />
 
