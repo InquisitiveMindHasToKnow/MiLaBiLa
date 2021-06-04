@@ -9,10 +9,10 @@ import org.ohmstheresistance.milabila.R
 import org.ohmstheresistance.milabila.dataclasses.DaysData
 import org.ohmstheresistance.milabila.fragments.DaysAndMonthsFragment
 
-class DaysAndMonthAdapter(private val dayList: List<DaysData>,
-    private val daysAndMonthsFragment: DaysAndMonthsFragment
+class DaysAdapter(private val dayList: List<DaysData>,
+                  private val daysAndMonthsFragment: DaysAndMonthsFragment
 ) :
-    RecyclerView.Adapter<DaysAndMonthAdapter.DaysViewHolder>() {
+    RecyclerView.Adapter<DaysAdapter.DaysViewHolder>() {
     override fun onCreateViewHolder(parent: ViewGroup, viewType: Int): DaysViewHolder {
         val v = LayoutInflater.from(parent.context)
             .inflate(R.layout.days_itemview, parent, false)
@@ -27,6 +27,7 @@ class DaysAndMonthAdapter(private val dayList: List<DaysData>,
 
         holder.itemView.setOnClickListener {
 
+            daysAndMonthsFragment.updateDayNameText(dayClicked)
         }
     }
 
@@ -41,5 +42,8 @@ class DaysAndMonthAdapter(private val dayList: List<DaysData>,
             val dayName: TextView = itemView.findViewById(R.id.day_name_textview)
             dayName.text = days
         }
+    }
+    interface UpdateDaySelectedTextviewInterface {
+        fun updateDayNameText(dayName: String)
     }
 }
