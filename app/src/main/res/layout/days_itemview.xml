@@ -2,7 +2,7 @@
 <layout xmlns:android="http://schemas.android.com/apk/res/android">
 
     <androidx.cardview.widget.CardView
-        android:layout_width="88dp"
+        android:layout_width="match_parent"
         android:layout_height="32dp"
         android:layout_marginTop="8dp"
         android:layout_marginStart="8dp"
@@ -12,7 +12,7 @@
             android:layout_width="match_parent"
             android:layout_height="wrap_content"
             android:layout_gravity="center"
-            android:background="@color/cardview_light_background"
+            android:background="@color/highlight_color"
             android:orientation="vertical">
 
             <TextView
@@ -20,7 +20,7 @@
                 android:layout_width="match_parent"
                 android:layout_height="match_parent"
                 android:gravity="center"
-                android:textColor="@color/black"
+                android:textColor="@color/text_color"
                 android:fontFamily="@font/andika"
                 android:text="Monday"/>
 

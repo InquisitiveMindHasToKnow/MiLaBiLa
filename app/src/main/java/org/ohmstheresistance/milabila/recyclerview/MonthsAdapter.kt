@@ -23,10 +23,11 @@ RecyclerView.Adapter<MonthsAdapter.MonthsViewHolder>() {
         holder.bindItems(monthList[position])
 
         val monthClicked = monthList[position].monthName
+        val monthPosition = monthList[position].positionOfMonthInYear
 
         holder.itemView.setOnClickListener {
 
-            daysAndMonthsFragment.updateMonthNameText(monthClicked)
+            daysAndMonthsFragment.updateMonthNameText(monthClicked, monthPosition)
         }
     }
 
@@ -43,6 +44,6 @@ RecyclerView.Adapter<MonthsAdapter.MonthsViewHolder>() {
         }
     }
     interface UpdateMonthNameTextviewInterface {
-        fun updateMonthNameText(monthName: String)
+        fun updateMonthNameText(monthName: String, positionOfMonth: String)
     }
 }
