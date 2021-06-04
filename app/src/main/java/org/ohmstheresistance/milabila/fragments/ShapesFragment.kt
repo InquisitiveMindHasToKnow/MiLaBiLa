@@ -67,7 +67,8 @@ class ShapesFragment : Fragment(), ShapesAdapter.ShapesViewHolder.UpdateShapeIma
 
 
             shapesFragmentBinding.shapesfragShapeImageview.setBackgroundColor(Color.parseColor(colorPicked))
-            shapesFragmentBinding.shapefragShapeNameTextview.setTextColor(Color.parseColor(colorPicked))
+            shapesFragmentBinding.shapefragShapeNameTextview.setBackgroundColor(Color.parseColor(colorPicked))
+            shapesFragmentBinding.selectedImageNameAndColorTextview.setBackgroundColor(Color.parseColor(colorPicked))
 
             when(colorPicked){
                 "#FF0000" -> { colorPicked = "Red" }
