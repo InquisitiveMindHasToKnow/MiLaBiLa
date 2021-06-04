@@ -16,6 +16,7 @@
             android:fontFamily="@font/andika"
             android:gravity="center_horizontal"
             android:text="MilaBiLa Presents: Fun With "
+            android:textColor="@color/text_color"
             android:textSize="24sp"
             app:layout_constraintBottom_toTopOf="@id/landing_page_imageview"
             app:layout_constraintTop_toTopOf="parent" />

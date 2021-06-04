@@ -24,10 +24,11 @@ class DaysAdapter(private val dayList: List<DaysData>,
         holder.bindItems(dayList[position])
 
         val dayClicked = dayList[position].dayName
+        val positionOfDay = dayList[position].positionOfDayInWeek
 
         holder.itemView.setOnClickListener {
 
-            daysAndMonthsFragment.updateDayNameText(dayClicked)
+            daysAndMonthsFragment.updateDayNameText(dayClicked, positionOfDay)
         }
     }
 
@@ -44,6 +45,6 @@ class DaysAdapter(private val dayList: List<DaysData>,
         }
     }
     interface UpdateDaySelectedTextviewInterface {
-        fun updateDayNameText(dayName: String)
+        fun updateDayNameText(dayName: String, positionOfDay: String)
     }
 }
