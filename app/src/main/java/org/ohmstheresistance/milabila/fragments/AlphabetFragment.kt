@@ -67,7 +67,17 @@ class AlphabetFragment : Fragment(), AlphabetAdapter.UpdateDetailTextviewInterfa
     }
 
     private fun setUpLettersRecyclerView() {
-        alphabetFragmentBinding.alphabetListRecycler.layoutManager = GridLayoutManager(context, 4)
+
+        val layoutManager = GridLayoutManager(activity, 4)
+        layoutManager.spanSizeLookup = object : GridLayoutManager.SpanSizeLookup() {
+            override fun getSpanSize(position: Int): Int {
+                return when (position) {
+                    letterList.size -1, letterList.size -2 -> 2
+                    else -> 1
+                }
+            }
+        }
+        alphabetFragmentBinding.alphabetListRecycler.layoutManager = layoutManager
         alphabetFragmentBinding.alphabetListRecycler.adapter = alphabetAdapter
     }
 
