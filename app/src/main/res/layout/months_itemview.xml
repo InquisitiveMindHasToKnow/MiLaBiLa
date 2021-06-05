@@ -1,16 +1,18 @@
 <?xml version="1.0" encoding="utf-8"?>
-<layout xmlns:android="http://schemas.android.com/apk/res/android">
+<layout xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:app="http://schemas.android.com/apk/res-auto">
 
     <androidx.cardview.widget.CardView
         android:layout_width="match_parent"
         android:layout_height="32dp"
+        app:cardCornerRadius="8dp"
         android:layout_marginTop="8dp"
         android:layout_marginStart="8dp"
         android:layout_marginBottom="8dp">
 
         <LinearLayout
             android:layout_width="match_parent"
-            android:layout_height="wrap_content"
+            android:layout_height="match_parent"
             android:layout_gravity="center"
             android:background="@color/highlight_color"
             android:orientation="vertical">
@@ -19,7 +21,7 @@
                 android:id="@+id/month_name_textview"
                 android:layout_width="match_parent"
                 android:layout_height="match_parent"
-                android:gravity="center"
+                android:gravity="center_horizontal"
                 android:textColor="@color/text_color"
                 android:fontFamily="@font/andika"
                 android:text="August"/>

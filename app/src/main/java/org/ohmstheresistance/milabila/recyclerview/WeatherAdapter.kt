@@ -58,4 +58,7 @@ class WeatherAdapter(private val weatherList: List<WeatherData>, private val wea
             weatherName.text = weather
         }
     }
+    interface UpdateWeatherImageAndNameInterface {
+        fun updateWeatherImageAndName(clickedWeatherName: String, clickedWeatherImage: Int)
+    }
 }
