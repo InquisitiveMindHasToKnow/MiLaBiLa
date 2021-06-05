@@ -5,56 +5,41 @@ import androidx.fragment.app.Fragment
 import android.view.LayoutInflater
 import android.view.View
 import android.view.ViewGroup
+import androidx.databinding.DataBindingUtil
+import androidx.recyclerview.widget.GridLayoutManager
 import org.ohmstheresistance.milabila.R
+import org.ohmstheresistance.milabila.databinding.WeatherFragmentBinding
+import org.ohmstheresistance.milabila.dataclasses.WeatherData
+import org.ohmstheresistance.milabila.recyclerview.WeatherAdapter
 
-// TODO: Rename parameter arguments, choose names that match
-// the fragment initialization parameters, e.g. ARG_ITEM_NUMBER
-private const val ARG_PARAM1 = "param1"
-private const val ARG_PARAM2 = "param2"
-
-/**
- * A simple [Fragment] subclass.
- * Use the [WeatherFragment.newInstance] factory method to
- * create an instance of this fragment.
- */
 class WeatherFragment : Fragment() {
-    // TODO: Rename and change types of parameters
-    private var param1: String? = null
-    private var param2: String? = null
 
-    override fun onCreate(savedInstanceState: Bundle?) {
-        super.onCreate(savedInstanceState)
-        arguments?.let {
-            param1 = it.getString(ARG_PARAM1)
-            param2 = it.getString(ARG_PARAM2)
-        }
-    }
+    private val weatherList = listOf(
+        WeatherData("Sunny", R.drawable.sunny, R.drawable.sun_icon),
+        WeatherData("Rainy", R.drawable.raining, R.drawable.rain_icon),
+        WeatherData("Cloudy", R.drawable.cloudy, R.drawable.cloud),
+        WeatherData("Foggy", R.drawable.alt_foggy, R.drawable.fog_icon),
+        WeatherData("Snowy", R.drawable.snowing, R.drawable.snow_icon),
+        WeatherData("Windy", R.drawable.alt_windy, R.drawable.windy_icon)
+    )
+    private val weatherAdapter = WeatherAdapter(weatherList, this)
+    lateinit var weatherFragmentBinding: WeatherFragmentBinding
 
     override fun onCreateView(
         inflater: LayoutInflater, container: ViewGroup?,
         savedInstanceState: Bundle?
     ): View? {
-        // Inflate the layout for this fragment
-        return inflater.inflate(R.layout.weather_fragment, container, false)
+        weatherFragmentBinding =
+            DataBindingUtil.inflate(inflater, R.layout.weather_fragment, container, false)
+
+        setupWeatherRecyclerView()
+
+        return weatherFragmentBinding.root
     }
 
-    companion object {
-        /**
-         * Use this factory method to create a new instance of
-         * this fragment using the provided parameters.
-         *
-         * @param param1 Parameter 1.
-         * @param param2 Parameter 2.
-         * @return A new instance of fragment WeatherFragment.
-         */
-        // TODO: Rename and change types and number of parameters
-        @JvmStatic
-        fun newInstance(param1: String, param2: String) =
-            WeatherFragment().apply {
-                arguments = Bundle().apply {
-                    putString(ARG_PARAM1, param1)
-                    putString(ARG_PARAM2, param2)
-                }
-            }
+    private fun setupWeatherRecyclerView() {
+
+        weatherFragmentBinding.weatherRecycler.layoutManager = GridLayoutManager(context, 3)
+        weatherFragmentBinding.weatherRecycler.adapter = weatherAdapter
     }
 }
