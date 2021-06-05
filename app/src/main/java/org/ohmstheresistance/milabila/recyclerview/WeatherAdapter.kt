@@ -41,6 +41,8 @@ class WeatherAdapter(private val weatherList: List<WeatherData>, private val wea
                 .into(weatherFragment.weatherFragmentBinding.weatherImageview)
 
             weatherFragment.weatherFragmentBinding.weatherTypeTextview.text = weatherTypeClicked
+
+            weatherFragment.passWeatherNameForTTS(weatherTypeClicked)
         }
     }
 
@@ -58,7 +60,7 @@ class WeatherAdapter(private val weatherList: List<WeatherData>, private val wea
             weatherName.text = weather
         }
     }
-    interface UpdateWeatherImageAndNameInterface {
-        fun updateWeatherImageAndName(clickedWeatherName: String, clickedWeatherImage: Int)
+    interface PassWeatherNameInterface {
+        fun passWeatherNameForTTS(clickedWeatherName: String)
     }
 }
