@@ -18,15 +18,15 @@ import java.util.*
 class WeatherFragment : Fragment(),WeatherAdapter.PassWeatherNameInterface,  TextToSpeech.OnInitListener {
 
     private val weatherList = listOf(
-        WeatherData("Sunny", R.drawable.sunny, R.drawable.sun_icon),
-        WeatherData("Rainy", R.drawable.raining, R.drawable.rain_icon),
-        WeatherData("Cloudy", R.drawable.cloudy, R.drawable.cloud),
-        WeatherData("Foggy", R.drawable.alt_foggy, R.drawable.fog_icon),
-        WeatherData("Snowy", R.drawable.snowing, R.drawable.snow_icon),
-        WeatherData("Windy", R.drawable.alt_windy, R.drawable.windy_icon),
+        WeatherData("Sun", R.drawable.sunny, R.drawable.sun_icon),
+        WeatherData("Rain", R.drawable.raining, R.drawable.rain_icon),
+        WeatherData("Cloud", R.drawable.cloudy, R.drawable.cloud),
+        WeatherData("Fog", R.drawable.alt_foggy, R.drawable.fog_icon),
+        WeatherData("Snow", R.drawable.snowing, R.drawable.snow_icon),
+        WeatherData("Wind", R.drawable.alt_windy, R.drawable.windy_icon),
         WeatherData("Lightning", R.drawable.lightning, R.drawable.lightning_icon),
-        WeatherData("Tornado", R.drawable.tornado, R.drawable.tornado_icon)
-    )
+        WeatherData("Tornado", R.drawable.tornado, R.drawable.tornado_icon),
+        WeatherData("Rainbow", R.drawable.rainbow, R.drawable.rainbow_icon))
 
     private val weatherAdapter = WeatherAdapter(weatherList, this)
     lateinit var weatherFragmentBinding: WeatherFragmentBinding
@@ -73,17 +73,21 @@ class WeatherFragment : Fragment(),WeatherAdapter.PassWeatherNameInterface,  Tex
     }
 
     override fun passWeatherNameForTTS(clickedWeatherName: String) {
-        var sentenceStartingPhrase = ""
 
-         if(clickedWeatherName.equals("Sunny")||clickedWeatherName.equals("Windy")){
+        var sentenceToSay = ""
 
-            sentenceStartingPhrase = "It is "
-
-        } else {
-            sentenceStartingPhrase = "This is a "
+        when(clickedWeatherName) {
+            "Sun" -> sentenceToSay = resources.getString(R.string.sunny)
+            "Rain" -> sentenceToSay = resources.getString(R.string.raining)
+            "Wind" -> sentenceToSay = resources.getString(R.string.windy)
+            "Cloud" -> sentenceToSay = resources.getString(R.string.cloudy)
+            "Fog" -> sentenceToSay = resources.getString(R.string.foggy)
+            "Snow" -> sentenceToSay = resources.getString(R.string.snowing)
+            "Tornado" -> sentenceToSay = resources.getString(R.string.tornado)
+            "Lightning" -> sentenceToSay = resources.getString(R.string.lightning)
+            "Rainbow" -> sentenceToSay = resources.getString(R.string.rainbow)
         }
 
-        val sentenceToSay = sentenceStartingPhrase + clickedWeatherName
         textToSpeech.speak(sentenceToSay, TextToSpeech.QUEUE_FLUSH, null)
     }
 }
