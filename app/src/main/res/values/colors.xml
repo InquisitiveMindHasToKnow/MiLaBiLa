@@ -13,4 +13,6 @@
     <color name="highlight_color">#922c40</color>
     <color name="second_text_color">#dc9750</color>
 
+    <color name="red">#FF0000</color>
+
 </resources>

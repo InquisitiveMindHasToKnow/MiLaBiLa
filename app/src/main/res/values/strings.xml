@@ -1,5 +1,26 @@
 <resources>
     <string name="app_name">MiLaBiLa</string>
-    <!-- TODO: Remove or change this placeholder text -->
-    <string name="hello_blank_fragment">Hello blank fragment</string>
+
+    <string name="foggy">It is foggy.</string>
+    <string name="raining">It is raining</string>
+    <string name="sunny">It is sunny.</string>
+    <string name="tornado">This is a tornado.</string>
+    <string name="rainbow">This is a rainbow.</string>
+    <string name="snowing">It is snowing.</string>
+    <string name="windy">It is windy.</string>
+    <string name="cloudy">It is cloudy.</string>
+    <string name="lightning">This is lightning.</string>
+
+    <string name="red">Red</string>
+    <string name="blue">Blue</string>
+    <string name="yellow">Yellow</string>
+    <string name="purple">Purple</string>
+    <string name="green">Green</string>
+    <string name="orange">Orange</string>
+    <string name="black">Black</string>
+    <string name="pink">Pink</string>
+    <string name="brown">Brown</string>
+    <string name="gray">Gray</string>
+    <string name="white">White</string>
+    <string name="maroon">Maroon</string>
 </resources>

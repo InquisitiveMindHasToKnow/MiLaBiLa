@@ -40,91 +40,91 @@ class ColorFragment : Fragment(), View.OnClickListener, TextToSpeech.OnInitListe
         when (view?.id) {
             colorFragmentBinding.redButton.id -> {
                 colorFragmentBinding.colorFragConstraint.setBackgroundColor(Color.parseColor("#FF0000"))
-                colorFragmentBinding.colorNameTextview.text = "Red"
+                colorFragmentBinding.colorNameTextview.text = resources.getString(R.string.red)
                 colorFragmentBinding.colorNameTextview.setTextColor(Color.parseColor("#FF0000"))
-                textToSpeech.speak("Red", TextToSpeech.QUEUE_FLUSH, null)
+                textToSpeech.speak(resources.getString(R.string.red), TextToSpeech.QUEUE_FLUSH, null)
 
             }
 
             colorFragmentBinding.blueButton.id -> {
                 colorFragmentBinding.colorFragConstraint.setBackgroundColor(Color.parseColor("#0000FF"))
-                colorFragmentBinding.colorNameTextview.text = "Blue"
+                colorFragmentBinding.colorNameTextview.text = resources.getString(R.string.blue)
                 colorFragmentBinding.colorNameTextview.setTextColor(Color.parseColor("#0000FF"))
-                textToSpeech.speak("Blue", TextToSpeech.QUEUE_FLUSH, null)
+                textToSpeech.speak(resources.getString(R.string.blue), TextToSpeech.QUEUE_FLUSH, null)
 
             }
 
             colorFragmentBinding.yellowButton.id -> {
                 colorFragmentBinding.colorFragConstraint.setBackgroundColor(Color.parseColor("#FFFF00"))
-                colorFragmentBinding.colorNameTextview.text = "Yellow"
+                colorFragmentBinding.colorNameTextview.text = resources.getString(R.string.yellow)
                 colorFragmentBinding.colorNameTextview.setTextColor(Color.parseColor("#FFFF00"))
-                textToSpeech.speak("Yellow", TextToSpeech.QUEUE_FLUSH, null)
+                textToSpeech.speak(resources.getString(R.string.yellow), TextToSpeech.QUEUE_FLUSH, null)
 
             }
             colorFragmentBinding.purpleButton.id -> {
                 colorFragmentBinding.colorFragConstraint.setBackgroundColor(Color.parseColor("#800080"))
-                colorFragmentBinding.colorNameTextview.text = "Purple"
+                colorFragmentBinding.colorNameTextview.text = resources.getString(R.string.purple)
                 colorFragmentBinding.colorNameTextview.setTextColor(Color.parseColor("#800080"))
-                textToSpeech.speak("Purple", TextToSpeech.QUEUE_FLUSH, null)
+                textToSpeech.speak(resources.getString(R.string.purple), TextToSpeech.QUEUE_FLUSH, null)
 
             }
 
             colorFragmentBinding.greenButton.id -> {
                 colorFragmentBinding.colorFragConstraint.setBackgroundColor(Color.parseColor("#008000"))
-                colorFragmentBinding.colorNameTextview.text = "Green"
+                colorFragmentBinding.colorNameTextview.text = resources.getString(R.string.green)
                 colorFragmentBinding.colorNameTextview.setTextColor(Color.parseColor("#008000"))
-                textToSpeech.speak("Green", TextToSpeech.QUEUE_FLUSH, null)
+                textToSpeech.speak(resources.getString(R.string.green), TextToSpeech.QUEUE_FLUSH, null)
 
             }
             colorFragmentBinding.orangeButton.id -> {
                 colorFragmentBinding.colorFragConstraint.setBackgroundColor(Color.parseColor("#FFA500"))
-                colorFragmentBinding.colorNameTextview.text = "Orange"
+                colorFragmentBinding.colorNameTextview.text = resources.getString(R.string.orange)
                 colorFragmentBinding.colorNameTextview.setTextColor(Color.parseColor("#FFA500"))
-                textToSpeech.speak("Orange", TextToSpeech.QUEUE_FLUSH, null)
+                textToSpeech.speak(resources.getString(R.string.orange), TextToSpeech.QUEUE_FLUSH, null)
 
             }
             colorFragmentBinding.blackButton.id -> {
                 colorFragmentBinding.colorFragConstraint.setBackgroundColor(Color.parseColor("#000000"))
                 colorFragmentBinding.colorNameTextview.setBackgroundColor(Color.parseColor("#FFFFFF"))
-                colorFragmentBinding.colorNameTextview.text = "Black"
+                colorFragmentBinding.colorNameTextview.text = resources.getString(R.string.black)
                 colorFragmentBinding.colorNameTextview.setTextColor(Color.parseColor("#000000"))
-                textToSpeech.speak("Black", TextToSpeech.QUEUE_FLUSH, null)
+                textToSpeech.speak(resources.getString(R.string.black), TextToSpeech.QUEUE_FLUSH, null)
 
             }
             colorFragmentBinding.pinkButton.id -> {
                 colorFragmentBinding.colorFragConstraint.setBackgroundColor(Color.parseColor("#FFC0CB"))
-                colorFragmentBinding.colorNameTextview.text = "Pink"
+                colorFragmentBinding.colorNameTextview.text = resources.getString(R.string.pink)
                 colorFragmentBinding.colorNameTextview.setTextColor(Color.parseColor("#FFC0CB"))
-                textToSpeech.speak("Pink", TextToSpeech.QUEUE_FLUSH, null)
+                textToSpeech.speak(resources.getString(R.string.pink), TextToSpeech.QUEUE_FLUSH, null)
 
             }
             colorFragmentBinding.brownButton.id -> {
                 colorFragmentBinding.colorFragConstraint.setBackgroundColor(Color.parseColor("#88540B"))
-                colorFragmentBinding.colorNameTextview.text = "Brown"
+                colorFragmentBinding.colorNameTextview.text = resources.getString(R.string.brown)
                 colorFragmentBinding.colorNameTextview.setTextColor(Color.parseColor("#88540B"))
-                textToSpeech.speak("Brown", TextToSpeech.QUEUE_FLUSH, null)
+                textToSpeech.speak(resources.getString(R.string.brown), TextToSpeech.QUEUE_FLUSH, null)
 
             }
             colorFragmentBinding.grayButton.id -> {
                 colorFragmentBinding.colorFragConstraint.setBackgroundColor(Color.parseColor("#808080"))
-                colorFragmentBinding.colorNameTextview.text = "Gray"
+                colorFragmentBinding.colorNameTextview.text = resources.getString(R.string.gray)
                 colorFragmentBinding.colorNameTextview.setTextColor(Color.parseColor("#808080"))
-                textToSpeech.speak("Gray", TextToSpeech.QUEUE_FLUSH, null)
+                textToSpeech.speak(resources.getString(R.string.gray), TextToSpeech.QUEUE_FLUSH, null)
 
             }
             colorFragmentBinding.whiteButton.id -> {
                 colorFragmentBinding.colorFragConstraint.setBackgroundColor(Color.parseColor("#FFFFFF"))
                 colorFragmentBinding.colorNameTextview.setBackgroundColor(Color.parseColor("#000000"))
-                colorFragmentBinding.colorNameTextview.text = "White"
+                colorFragmentBinding.colorNameTextview.text = resources.getString(R.string.white)
                 colorFragmentBinding.colorNameTextview.setTextColor(Color.parseColor("#FFFFFF"))
-                textToSpeech.speak("White", TextToSpeech.QUEUE_FLUSH, null)
+                textToSpeech.speak(resources.getString(R.string.white), TextToSpeech.QUEUE_FLUSH, null)
 
             }
             colorFragmentBinding.maroonButton.id -> {
                 colorFragmentBinding.colorFragConstraint.setBackgroundColor(Color.parseColor("#800000"))
-                colorFragmentBinding.colorNameTextview.text = "Maroon"
+                colorFragmentBinding.colorNameTextview.text = resources.getString(R.string.maroon)
                 colorFragmentBinding.colorNameTextview.setTextColor(Color.parseColor("#800000"))
-                textToSpeech.speak("Maroon", TextToSpeech.QUEUE_FLUSH, null)
+                textToSpeech.speak(resources.getString(R.string.maroon), TextToSpeech.QUEUE_FLUSH, null)
 
             }
 
