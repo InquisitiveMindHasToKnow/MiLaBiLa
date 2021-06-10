@@ -71,19 +71,19 @@ class ShapesFragment : Fragment(), ShapesAdapter.ShapesViewHolder.UpdateShapeIma
             shapesFragmentBinding.selectedImageNameAndColorTextview.setBackgroundColor(Color.parseColor(colorPicked))
 
             when(colorPicked){
-                "#FF0000" -> { colorPicked = "Red" }
-                "#0000FF" -> { colorPicked ="Blue"}
-                "#FFFF00" -> { colorPicked ="Yellow"}
-                "#800080" -> { colorPicked ="Purple"}
-                "#008000" -> { colorPicked ="Green"}
-                "#FFA500" -> { colorPicked ="Orange"}
-                "#FFC0CB" -> { colorPicked ="Pink"}
-                "#88540B" -> { colorPicked ="Brown"}
-                "#800000" -> { colorPicked ="Maroon"}
-                "#808080" -> { colorPicked = "Gray"}
+                "#FF0000" -> { colorPicked = resources.getString(R.string.red) }
+                "#0000FF" -> { colorPicked = resources.getString(R.string.blue)}
+                "#FFFF00" -> { colorPicked = resources.getString(R.string.yellow)}
+                "#800080" -> { colorPicked = resources.getString(R.string.purple)}
+                "#008000" -> { colorPicked = resources.getString(R.string.green)}
+                "#FFA500" -> { colorPicked = resources.getString(R.string.orange)}
+                "#FFC0CB" -> { colorPicked = resources.getString(R.string.pink)}
+                "#88540B" -> { colorPicked = resources.getString(R.string.brown)}
+                "#800000" -> { colorPicked = resources.getString(R.string.maroon)}
+                "#808080" -> { colorPicked = resources.getString(R.string.gray)}
             }
-            val sentenceToSay = clickedShapeName + ". The " + clickedShapeName + " is " + colorPicked
-            val sentenceToDisplay = "The " + clickedShapeName + " is " + colorPicked + "."
+            val sentenceToSay = clickedShapeName + resources.getString(R.string.shape_frag_display_text, clickedShapeName, colorPicked)
+            val sentenceToDisplay = resources.getString(R.string.shape_frag_display_text, clickedShapeName, colorPicked)
             shapesFragmentBinding.selectedImageNameAndColorTextview.text = sentenceToDisplay
 
             textToSpeech.speak(sentenceToSay, TextToSpeech.QUEUE_FLUSH, null)
