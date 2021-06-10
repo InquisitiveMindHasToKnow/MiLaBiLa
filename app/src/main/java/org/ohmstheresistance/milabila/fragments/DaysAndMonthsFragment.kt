@@ -80,8 +80,8 @@ class DaysAndMonthsFragment : Fragment(), DaysAdapter.UpdateDaySelectedTextviewI
     }
 
     override fun updateDayNameText(dayName: String, positionOfDay: String) {
-        val sentenceToSpeakForDay = dayName + ". " + dayName + " is the " + positionOfDay + " day of the week."
-        val sentenceToDisplayForDay = dayName + " is the " + positionOfDay + " day of the week."
+        val sentenceToSpeakForDay = dayName + ". " + resources.getString(R.string.days_and_month_frag_display_text_for_day, dayName, positionOfDay)
+        val sentenceToDisplayForDay = resources.getString(R.string.days_and_month_frag_display_text_for_day, dayName, positionOfDay)
 
         daysAndMonthsFragmentBinding.detailTextview.text = sentenceToDisplayForDay
         daysAndMonthsFragmentBinding.dayOrMonthSelectedTextview.text = dayName
@@ -90,8 +90,8 @@ class DaysAndMonthsFragment : Fragment(), DaysAdapter.UpdateDaySelectedTextviewI
     }
 
     override fun updateMonthNameText(monthName: String, positionOfMonth: String ) {
-        val sentenceToSpeakForMonth = monthName + ". " + monthName + " is the " + positionOfMonth + " month of the year."
-        val sentenceToDisplayForMonth = monthName + " is the " + positionOfMonth +  " month of the year."
+        val sentenceToSpeakForMonth = monthName + ". " + resources.getString(R.string.days_and_month_frag_display_text_for_month, monthName, positionOfMonth)
+        val sentenceToDisplayForMonth = resources.getString(R.string.days_and_month_frag_display_text_for_month, monthName, positionOfMonth)
 
         daysAndMonthsFragmentBinding.detailTextview.text = sentenceToDisplayForMonth
         daysAndMonthsFragmentBinding.dayOrMonthSelectedTextview.text = monthName

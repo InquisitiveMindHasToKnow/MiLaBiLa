@@ -87,7 +87,7 @@ class AlphabetFragment : Fragment(), AlphabetAdapter.UpdateDetailTextviewInterfa
         positionOfLetterClicked: Int
     ) {
         val sentenceToSay =  letter.substring(1) + " is for " + comparisonWord
-        val sentenceToDisplay = letter + " is for " + comparisonWord + "."
+        val sentenceToDisplay = resources.getString(R.string.alphabet_frag_display_text, letter, comparisonWord)
         textToSpeech.speak(sentenceToSay, TextToSpeech.QUEUE_FLUSH, null)
 
 

@@ -23,4 +23,8 @@
     <string name="gray">Gray</string>
     <string name="white">White</string>
     <string name="maroon">Maroon</string>
+
+    <string name="alphabet_frag_display_text">%1$s is for %2$s.</string>
+    <string name="days_and_month_frag_display_text_for_day">%1$s is the %2$s day of the week.</string>
+    <string name="days_and_month_frag_display_text_for_month">%1$s is the %2$s month of the year.</string>
 </resources>
