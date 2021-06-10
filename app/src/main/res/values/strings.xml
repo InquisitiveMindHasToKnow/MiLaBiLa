@@ -27,4 +27,5 @@
     <string name="alphabet_frag_display_text">%1$s is for %2$s.</string>
     <string name="days_and_month_frag_display_text_for_day">%1$s is the %2$s day of the week.</string>
     <string name="days_and_month_frag_display_text_for_month">%1$s is the %2$s month of the year.</string>
+    <string name="shape_frag_display_text">The %1$s is %2$s.</string>
 </resources>
